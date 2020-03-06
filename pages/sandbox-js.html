@@ -100,11 +100,11 @@
             <h2>Forms</h2>
             <div>
                 <div class="form01">
-                    <form>
-                        <input class="input01" type="text" placeholder="Name">
+                    <form method="GET">
+                        <input class="input01" type="text" placeholder="Name"  id="name1">
                         <input class="input02" type="email" placeholder="Email">
                         <input class="input03" type="password" placeholder="Password">
-                        <button class="button01" type="submit">Send</button>
+                        <button class="button01" onclick="return clicked();" type="submit">Send</button>
                     </form>
                 </div>
                 <div class="form02">
@@ -173,11 +173,29 @@
 
     <script src="../public/js/website.js" type="text/javascript" ></script>
     <script>
-        (function () {
+        // var allForms = new Array(3);
+        // allForms[0] = document.getElementsByClassName("input01");
+        // allForms[1] = document.getElementsByClassName("input02");
+        // allForms[2] = document.getElementsByClassName("input03");
+      
+        //var x = document.getElementsByClassName["input01"]["input02"]["input03"].value;
+         function clicked() {
+         var inpObj01 = document.getElementsByClassName("input01")[0].value;
+         var inpObj02 = document.getElementsByClassName("input02")[0].value;
+         var inpObj03 = document.getElementsByClassName("input03")[0].value;
+         //return confirm(inpObj01 + inpObj02 + inpObj03);
+            if (inpObj01 === '') {
+             alert('please write your name');
+            } else if (inpObj02 == '') {
+            alert('please write your email');
+            } else if (inpObj03 == '') {
+            alert('please write your password');
+            } else {
+             alert(inpObj01+ " " + inpObj02+ " " + inpObj03);
+            }
+         }
 
-
-
-        })();
+      //(function () {   })();
     </script>
 </body>
 </html>

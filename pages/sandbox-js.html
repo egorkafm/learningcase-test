@@ -101,17 +101,19 @@
             <div>
                 <div class="form01">
                     <form method="GET">
-                        <input class="input01" type="text" placeholder="Name"  id="name1">
+                        <input class="input01" type="text" placeholder="Name">
                         <input class="input02" type="email" placeholder="Email">
                         <input class="input03" type="password" placeholder="Password">
                         <button class="button01" onclick="return clicked();" type="submit">Send</button>
                     </form>
                 </div>
                 <div class="form02">
-                    <form>
-                        <label>Gender</label>
+                    <form id="gender">
+                        <label>Gender:</label>
                         <input class="input04" type="radio" name="sex" value="Male">
+                        <label>Male</label>
                         <input class="input05" type="radio" name="sex" value="Female">
+                        <label>Female</label>
                         <input class="input06" type="date" placeholder="DOB">
                         <button class="button01" type="submit">Send</button>
                     </form>
@@ -184,16 +186,38 @@
          var inpObj02 = document.getElementsByClassName("input02")[0].value;
          var inpObj03 = document.getElementsByClassName("input03")[0].value;
          //return confirm(inpObj01 + inpObj02 + inpObj03);
-            if (inpObj01 === '') {
+            if (inpObj01 == '') {
              alert('please write your name');
             } else if (inpObj02 == '') {
             alert('please write your email');
             } else if (inpObj03 == '') {
             alert('please write your password');
             } else {
-             alert(inpObj01+ " " + inpObj02+ " " + inpObj03);
+             alert(inpObj01 + "\n" + inpObj02 + "\n" + inpObj03);
             }
          }
+
+         var gender = document.getElementById("gender");
+         var inpObj06 = document.getElementsByClassName("input06")[0].value;
+         var inpObj06 = document.querySelector('input[type="date"]');
+         var timeIsNow = new Date();
+            gender.addEventListener("submit", function(event) {
+            var data = new FormData(gender);
+            var output = "";
+            for (const entry of data) {
+            output = entry[1] + "\r";
+            };
+                if (output == '') {
+                alert("please choose your gender and date");
+                } else if (inpObj06.value == "") {
+                    inpObj06.value == timeIsNow;
+                    alert("please choose your date" + "\n" + "example: today is" + "\n" + timeIsNow);
+                }
+                else {
+                alert(output + inpObj06.value);
+                }
+            }, false);  
+                    
 
       //(function () {   })();
     </script>
